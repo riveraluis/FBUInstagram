@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    // Navigates to mainacitivity if the user has signed in properly
+    // Navigates to mainActivity if the user has signed in properly
     // note: Ensure the method is private so no other object outside scope/class can access it
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to log in user " + username);
