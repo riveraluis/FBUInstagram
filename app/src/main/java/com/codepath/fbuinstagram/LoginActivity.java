@@ -18,6 +18,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
+
     public static final String TAG = "LoginActivity";
     private EditText etUsername;
     private EditText etPassword;
@@ -50,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // Navigates to mainActivity if the user has signed in properly
-    // note: Ensure the method is private so no other object outside scope/class can access it
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to log in user " + username);
 
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 // Logged in successfully; navigates to MainActivity
                 goMainActivity();
-                Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Successful login!", Toast.LENGTH_SHORT).show();
             }
         });
     }
