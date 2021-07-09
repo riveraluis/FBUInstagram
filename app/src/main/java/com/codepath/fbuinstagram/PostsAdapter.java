@@ -1,6 +1,7 @@
 package com.codepath.fbuinstagram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+import org.parceler.Parcels;
 
 import java.util.Date;
 import java.util.List;
@@ -57,14 +59,27 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-            tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    // check if position is valid
+                    if (position != RecyclerView.NO_POSITION) {
+                        Post postIntent = posts.get(position);
+                        Intent intent = new Intent(context, PostDetailsActivity.class);
+                        intent.putExtra("post", Parcels.wrap(postIntent));
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
 
         public void bind(Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
-            tvTimestamp.setText(formatTimestamp(post.getCreatedAt()));
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
@@ -119,4 +134,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         return "";
     }
+
+
 }

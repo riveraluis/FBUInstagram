@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.codepath.fbuinstagram.Fragments.ComposeFragment;
 import com.codepath.fbuinstagram.Fragments.PostsFragment;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager fragmentManager = getSupportFragmentManager();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.reuse_toolbar);
+        setSupportActionBar(toolbar);
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 

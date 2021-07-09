@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ComposeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <EditText
         android:id="@+id/etDescription"
@@ -15,21 +16,24 @@
 
     <Button
         android:id="@+id/btnCaptureImage"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take Picture" />
+        android:text="Take Picture"
+        android:background="#b5b2bf"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="#b5b2bf"
         android:text="Submit"/>
 
 </LinearLayout>
